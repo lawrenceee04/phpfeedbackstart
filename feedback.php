@@ -4,8 +4,6 @@ require_once "includes/db_connect.php";
 $sql = "SELECT * FROM phpfeedbackstart.feedback";
 
 $result = $conn->query($sql);
-
-$dayOfTheWeek = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
 ?>
 
 <!DOCTYPE html>
