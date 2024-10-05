@@ -4,8 +4,9 @@ require_once "includes/db_connect.php";
 $sql = "SELECT * FROM phpfeedbackstart.feedback";
 
 $result = $conn->query($sql);
-?>
 
+$dayOfTheWeek = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -72,13 +73,20 @@ $result = $conn->query($sql);
       <?php
       if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
+
+          date_default_timezone_set('Asia/Taipei');
+          $datetime = date_create($row['datetime']);
+          $time = date_format($datetime, 'g:i A');
+          $date = date_format($datetime, 'l jS F Y');
           echo "<div class='card my-3'>
           <div class='card-body'>
             <p class='card-text'>" . $row['body'] . "</p>
-            <h5 class='card-title'>" . $row['name'] . "on" "</h5>
+            <p class='card-title'>" . $row['name'] . " wrote on " . $time . " on " . $date . "</p>
           </div>
         </div>";
         }
+      } else {
+        echo "<p class='my-4'>No feedbacks received yet.</p>";
       }
       ?>
     </div>

@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO phpfeedbackstart.feedback (name, email, body) VALUES ('$name', '$email', '$body')";
 
     if ($conn->query($sql) === TRUE) {
-        echo 'New record created successfully';
+        header('Location: ../feedback.php');
     } else {
         echo 'Error: ' . $sql . '<br>' . $conn->error;
     }
