@@ -90,7 +90,7 @@ $result = $conn->query($sql);
     </div>
   </main>
 
-  <footer class="text-center mt-5">Copyright &copy; 2023</footer>
+  <footer class="text-center mt-5">Copyright &copy; 2024</footer>
 
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
